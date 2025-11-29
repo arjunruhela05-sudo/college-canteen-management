@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Payment</title>
+
+<style>
+body{
+    background:#3e2f22;
+    font-family:Georgia, serif;
+    display:flex;
+    justify-content:center;
+    padding:50px 0;
+}
+
+/* Payment Box */
+.pay-box{
+    width:55%;
+    background:#f8ebd6;
+    padding:30px;
+    border-radius:14px;
+    box-shadow:0 0 20px rgba(0,0,0,0.5);
+    text-align:center;
+}
+
+/* Headings */
+h1{
+    font-size:32px;
+    color:#4e3421;
+    margin-bottom:15px;
+}
+h3{
+    color:#5a3d24;
+    font-size:22px;
+    margin-top:20px;
+    text-decoration: underline;
+}
+
+/* Input styles */
+input{
+    width:80%;
+    padding:10px;
+    margin:8px 0;
+    border-radius:6px;
+    border:2px solid #a07443;
+    background:#fff7ea;
+    font-size:16px;
+}
+
+/* Buttons */
+.btn{
+    padding:12px 25px;
+    background:#d18d4e;
+    color:white;
+    border:none;
+    margin-top:15px;
+    border-radius:6px;
+    font-size:18px;
+    cursor:pointer;
+}
+.btn:hover{ background:#ffbb76; color:#40280d; }
+
+</style>
+</head>
+
+<body>
+<div class="pay-box">
+
+<h1>💳 Payment Portal</h1>
+
+<h3>Select Payment Method</h3>
+
+<label><input type="radio" name="pay"> UPI</label><br>
+<label><input type="radio" name="pay"> Debit / Credit Card</label><br>
+<label><input type="radio" name="pay"> Net Banking</label><br>
+<label><input type="radio" name="pay"> Cash On Delivery</label><br><br>
+
+<input type="text" placeholder="UPI ID / Card Number">
+<br>
+<input type="text" placeholder="Expiry (MM/YY)">
+<br>
+<input type="password" placeholder="CVV">
+<br>
+
+<a href="success.html"><button class="btn">Pay Now</button></a>
+
+</div>
+</body>
+</html>

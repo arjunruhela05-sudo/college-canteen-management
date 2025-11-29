@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Canteen</title>
+    <style>
+    /* 🔻 Full Screen Background Image */
+    body { 
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        text-align: center;
+        background-image: url('photo2.avif');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color: #333;
+    }
+
+    .hero {
+        height: 300px;
+        background-image: url('college.jpg');
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        border-bottom: 5px solid #d4a574;
+    }
+
+    .btn {
+        margin-top: 10px;
+        padding: 12px 32px;
+        background: linear-gradient(135deg, #d4a574 0%, #c9935f 100%);
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 8px;
+        display: inline-block;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 4px 15px rgba(212, 165, 116, 0.35);
+        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .btn.back { 
+        background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+        box-shadow: 0 4px 15px rgba(255, 152, 0, 0.35);
+    }
+    .section { 
+        display: none; 
+        padding: 20px;
+        animation: slideIn 0.4s ease;
+    }
+    
+    @keyframes slideIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .box {
+        width: 85%;
+        max-width: 500px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 252, 245, 0.96) 100%);
+        padding: 25px;
+        margin: 20px auto;
+        border: 1px solid rgba(212, 165, 116, 0.1);
+        border-radius: 15px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        transition: all 0.3s ease;
+    }
+
+    .logo {
+        width: 280px;
+        height: auto;
+        margin: 20px auto;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    }
+
+    img { 
+        width: 250px; 
+        height: 150px; 
+        border-radius: 10px;
+        object-fit: cover;
+    }
+    h1 { 
+        margin: 20px 0; 
+        font-size: 2.5em;
+        color: #2c1810;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    h2 { 
+        margin: 15px 0; 
+        font-size: 1.8em;
+        color: #5a3d21;
+        font-weight: 600;
+    }
+
+    .btn:hover{
+        background: linear-gradient(135deg, #e6b884 0%, #d9a470 100%);
+        box-shadow: 0 6px 25px rgba(212, 165, 116, 0.45);
+        transform: translateY(-3px);
+    }
+    .btn.back:hover {
+        background: linear-gradient(135deg, #ffb143 0%, #ff9800 100%);
+        box-shadow: 0 6px 25px rgba(255, 152, 0, 0.45);
+        transform: translateY(-3px);
+    }
+
+    button{
+        background: linear-gradient(135deg, #d29034 0%, #c07f2a 100%);
+        border: none;
+        padding: 12px 28px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        color: white;
+        box-shadow: 0 4px 15px rgba(210, 144, 52, 0.35);
+        transition: all 0.3s ease;
+    }
+
+    button:hover{
+        background: linear-gradient(135deg, #e6a84a 0%, #d4913a 100%);
+        box-shadow: 0 6px 25px rgba(210, 144, 52, 0.45);
+        transform: translateY(-2px);
+    }
+    /* Apply style only on menu photos */
+    .menu-img{
+       border-radius: 12px;
+       border: 3px solid #d4a574;
+       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+       transition: all 0.3s ease;
+    }
+    
+    .menu-img:hover {
+        transform: scale(1.06);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Logo is normal */
+    .logo{
+       border:none;
+       box-shadow:none;
+    }
+
+    .menu-section{
+        background: #fff7e6;
+        width: 70%;
+        margin: auto;
+        padding: 20px;
+        border-radius: 10px;
+        font-family: Georgia, serif;
+        box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .menu-title{
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 15px;
+        color: #5a3d21;
+        text-decoration: underline;
+    }
+
+    .menu-list{
+        font-size: 18px;
+        margin: 5px 0;
+        display: flex;
+        justify-content: space-between;
+        padding: 3px 0;
+    }
+    .menu-price{
+        color: #b56c2a;
+        font-weight: bold;
+    }
+    .menu-box{
+        background: linear-gradient(135deg, #fff7e6 0%, #fffbf0 100%);
+        width: 85%;
+        max-width: 700px;
+        margin: auto;
+        padding: 25px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        border: 1px solid rgba(212, 165, 116, 0.1);
+    }
+
+    .menu-photo{
+        width: 220px;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        border: 4px solid #d4a574;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+    }
+    
+    .menu-photo:hover {
+        transform: scale(1.08);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+    }
+
+    .menu-item{
+        display:flex;
+        align-items:center;
+        font-size:22px;
+        margin:8px 0;
+        color:#3b2617;
+    }
+
+    /* Name + dotted line effect */
+    .menu-item span{
+        flex:1;
+        margin:0 10px;
+        border-bottom:2px dotted #c78a3a;
+    }
+
+    /* Extra premium hover effect */
+    .menu-item:hover{
+        background: linear-gradient(135deg, #ffe8b3 0%, #ffdfa3 100%);
+        border-radius: 8px;
+        padding: 6px 10px;
+        transition: all 0.3s ease;
+        box-shadow: inset 0 2px 8px rgba(255, 200, 100, 0.3);
+    }
+    img:hover{
+        transform: scale(1.08);
+        transition: all 0.3s ease;
+        filter: brightness(1.12);
+    }
+
+    .box:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    }
+
+
+
+
+
+
+
+
+
+   
+</style>
+
+    
+</head>
+<html>
+<button style="position:fixed; top:15px; right:20px; padding:10px 18px; border-radius:8px; font-size:14px; z-index:1000;" onclick="toggleTheme()">🌙 Change Theme</button>
+
+<!-- Home Section -->
+<div id="home" class="section" style="display:block;">
+    <div class="hero"></div>
+    <img src="logo (1).png" class="logo">
+
+    <h1 style="color: #2c1810;">☕ Welcome to College Canteen System</h1>
+    <p style="font-size: 1.2em; color: #666; margin-bottom: 25px;">Taste the Flavors, Fast & Fresh</p>
+    <button class="btn" onclick="showSection('canteenList')" style="color: white; padding: 14px 40px; font-size: 17px;">🏪 Show Canteens</button>
+</div>
+
+
+
+<!-- Canteen List Section -->
+<div id="canteenList" class="section">
+    <h1>🏬 Select Your Canteen</h1>
+
+    <div class="box">
+        <img src="canteen1.jpg" class="menu-img">
+        <h2>Gouri Cafe</h2>
+        <p><strong>Owner:</strong> Mr. Rakesh Sharma</p>
+        <p><strong>Established:</strong> 2005</p>
+        <button class="btn" onclick="showSection('canteen1')" style="margin-top: 15px;">View Menu</button>
+    </div>
+
+    <div class="box">
+        <img src="canteen2.jpg" class="menu-img">
+        <h2>Tea Man's Cafe</h2>
+        <p><strong>Owner:</strong> Mrs. Anjali Verma</p>
+        <p><strong>Established:</strong> 2010</p>
+        <button class="btn" onclick="showSection('canteen2')" style="margin-top: 15px;">View Menu</button>
+    </div>
+
+    <div class="box">
+        <img src="canteen3.jpg" class="menu-img">
+        <h2>Juice Corner</h2>
+        <p><strong>Owner:</strong> Mr. Sanjay Kumar</p>
+        <p><strong>Established:</strong> 2018</p>
+        <button class="btn" onclick="showSection('canteen3')" style="margin-top: 15px;">View Menu</button>
+    </div>
+    
+    <button class="btn back" style="margin-top: 30px;" onclick="showSection('home')">← Back to Home</button>
+</div>
+
+
+<!-- Canteen 1 Section -->
+<div id="canteen1" class="section">
+<div class="menu-box">
+
+<img src="canteen1.jpg" class="menu-photo">
+<h2>☕ Gouri Cafe</h2>
+<p><b>Owner:</b> Mr. Rakesh Sharma</p>
+<p><b>Established:</b> 2005</p>
+
+<h3>🍽️ Fast Food</h3>
+<table id="stock1" border="0" style="width:90%; margin:auto; font-size:16px; background:white; border-radius: 8px; overflow: hidden;">
+<tr><th>Item</th><th>Price</th><th>Qty</th><th>Stock</th></tr>
+<tr><td>Samosa</td><td>₹15</td><td><input type="number" min="0" value="0"></td><td class="stk">20</td></tr>
+<tr><td>Noodles</td><td>₹60</td><td><input type="number" min="0" value="0"></td><td class="stk">15</td></tr>
+<tr><td>Maggi</td><td>₹30</td><td><input type="number" min="0" value="0"></td><td class="stk">10</td></tr>
+<tr><td>Singapuri Noodles</td><td>₹90</td><td><input type="number" min="0" value="0"></td><td class="stk">8</td></tr>
+<tr><td>Burger</td><td>₹50</td><td><input type="number" min="0" value="0"></td><td class="stk">12</td></tr>
+<tr><td>Chole Bhature</td><td>₹70</td><td><input type="number" min="0" value="0"></td><td class="stk">11</td></tr>
+<tr><td>Chilli Potato</td><td>₹70</td><td><input type="number" min="0" value="0"></td><td class="stk">7</td></tr>
+<tr><td>Momos</td><td>₹70</td><td><input type="number" min="0" value="0"></td><td class="stk">14</td></tr>
+<tr><td>Fried Momos</td><td>₹70</td><td><input type="number" min="0" value="0"></td><td class="stk">9</td></tr>
+</table>
+
+<h3>🥤 Drinks</h3>
+<table id="stock1D" border="0" style="width:90%; margin:auto; font-size:16px; background:white; border-radius: 8px; overflow: hidden;">
+<tr><th>Item</th><th>Price</th><th>Qty</th><th>Stock</th></tr>
+<tr><td>Tea</td><td>₹10</td><td><input type="number" min="0" value="0"></td><td class="stk">25</td></tr>
+<tr><td>Cold Coffee</td><td>₹60</td><td><input type="number" min="0" value="0"></td><td class="stk">18</td></tr>
+<tr><td>Hot Coffee</td><td>₹20</td><td><input type="number" min="0" value="0"></td><td class="stk">16</td></tr>
+<tr><td>Smoothie</td><td>₹50</td><td><input type="number" min="0" value="0"></td><td class="stk">10</td></tr>
+<tr><td>Cold Drink</td><td>₹50</td><td><input type="number" min="0" value="0"></td><td class="stk">30</td></tr>
+</table>
+
+<br>
+<button onclick="placeOrder1()" style="padding: 12px 40px; font-size: 16px; margin: 20px 0;">🛒 Place Order</button>
+<h2 id="bill1" style="color: #d4a574;"></h2><h2 id="token1" style="color:#2a8f1c;"></h2>
+<button class="btn back" style="margin-top: 15px;" onclick="showSection('canteenList')">← Back</button>
+</div>
+</div>
+
+
+
+<!-- Canteen 2 Section -->
+<div id="canteen2" class="section">
+<div class="menu-box">
+
+<img src="canteen2.jpg" class="menu-photo">
+<h2>🍴 Tea Man's Cafe</h2>
+<p><b>Owner:</b> Mrs. Anjali Verma</p>
+<p><b>Established:</b> 2010</p>
+
+<h3>🍛 Meals</h3>
+<table id="stock2" border="0" style="width:90%; margin:auto; font-size:16px; background:white; border-radius: 8px; overflow: hidden;">
+<tr><th>Item</th><th>Price</th><th>Qty</th><th>Stock</th></tr>
+<tr><td>Aloo Paratha</td><td>₹40</td><td><input type="number" min="0" value="0"></td><td class="stk">20</td></tr>
+<tr><td>Paneer</td><td>₹70</td><td><input type="number" min="0" value="0"></td><td class="stk">15</td></tr>
+<tr><td>Rajma Chawal</td><td>₹70</td><td><input type="number" min="0" value="0"></td><td class="stk">12</td></tr>
+<tr><td>Dal Chawal</td><td>₹55</td><td><input type="number" min="0" value="0"></td><td class="stk">14</td></tr>
+<tr><td>Chole Chawal</td><td>₹80</td><td><input type="number" min="0" value="0"></td><td class="stk">10</td></tr>
+<tr><td>Fried Rice</td><td>₹70</td><td><input type="number" min="0" value="0"></td><td class="stk">8</td></tr>
+</table>
+
+<h3>🍽️ Fast Food</h3>
+<table id="stock2F" border="0" style="width:90%; margin:auto; font-size:16px; background:white; border-radius: 8px; overflow: hidden;">
+<tr><th>Item</th><th>Price</th><th>Qty</th><th>Stock</th></tr>
+<tr><td>Maggi</td><td>₹30</td><td><input type="number" min="0" value="0"></td><td class="stk">18</td></tr>
+<tr><td>Pasta</td><td>₹90</td><td><input type="number" min="0" value="0"></td><td class="stk">12</td></tr>
+<tr><td>Cheese Potato</td><td>₹110</td><td><input type="number" min="0" value="0"></td><td class="stk">10</td></tr>
+<tr><td>Patties</td><td>₹35</td><td><input type="number" min="0" value="0"></td><td class="stk">25</td></tr>
+<tr><td>Chole Bhature</td><td>₹80</td><td><input type="number" min="0" value="0"></td><td class="stk">9</td></tr>
+</table>
+
+<br>
+<button onclick="placeOrder2()" style="padding: 12px 40px; font-size: 16px; margin: 20px 0;">🛒 Place Order</button>
+<h2 id="bill2" style="color: #d4a574;"></h2><h2 id="token2" style="color:#2a8f1c;"></h2>
+<button class="btn back" style="margin-top: 15px;" onclick="showSection('canteenList')">← Back</button>
+</div>
+</div>
+
+<div id="canteen3" class="section">
+<div class="menu-box">
+
+<img src="canteen3.jpg" class="menu-photo">
+<h2>🧃 Juice Corner</h2>
+<p><b>Owner:</b> Mr. Sanjay Kumar</p><p><b>Established:</b> 2018</p>
+
+<h3>🍹 Fresh Juices</h3>
+<table id="stock3" border="0" style="width:90%; margin:auto; font-size:16px; background:white; border-radius: 8px; overflow: hidden;">
+<tr><th>Item</th><th>Price</th><th>Qty</th><th>Stock</th></tr>
+<tr><td>Pomegranate Juice</td><td>₹40</td><td><input type="number" min="0" value="0"></td><td class="stk">25</td></tr>
+<tr><td>Dates Juice</td><td>₹40</td><td><input type="number" min="0" value="0"></td><td class="stk">22</td></tr>
+<tr><td>Apple Juice</td><td>₹35</td><td><input type="number" min="0" value="0"></td><td class="stk">20</td></tr>
+<tr><td>Guava Juice</td><td>₹35</td><td><input type="number" min="0" value="0"></td><td class="stk">18</td></tr>
+<tr><td>Pineapple Juice</td><td>₹40</td><td><input type="number" min="0" value="0"></td><td class="stk">15</td></tr>
+</table>
+
+<h3>🥤 Shakes</h3>
+<table id="stock3S" border="0" style="width:90%; margin:auto; font-size:16px; background:white; border-radius: 8px; overflow: hidden;">
+<tr><th>Item</th><th>Price</th><th>Qty</th><th>Stock</th></tr>
+<tr><td>Mango Shake</td><td>₹50</td><td><input type="number" min="0" value="0"></td><td class="stk">22</td></tr>
+<tr><td>Banana Shake</td><td>₹50</td><td><input type="number" min="0" value="0"></td><td class="stk">20</td></tr>
+<tr><td>Oreo Shake</td><td>₹60</td><td><input type="number" min="0" value="0"></td><td class="stk">15</td></tr>
+<tr><td>Chocolate Shake</td><td>₹60</td><td><input type="number" min="0" value="0"></td><td class="stk">14</td></tr>
+<tr><td>Strawberry Shake</td><td>₹60</td><td><input type="number" min="0" value="0"></td><td class="stk">12</td></tr>
+</table>
+
+<br>
+<button onclick="placeOrder3()" style="padding: 12px 40px; font-size: 16px; margin: 20px 0;">🛒 Place Order</button>
+<h2 id="bill3" style="color: #d4a574;"></h2><h2 id="token3" style="color:#2a8f1c;"></h2>
+<button class="btn back" style="margin-top: 15px;" onclick="showSection('canteenList')">← Back</button>
+</div>
+</div>
+
+
+<script>
+
+let token1 = 100, token2 = 200, token3 = 300;
+
+function calc(table, billBox, tokenBox, tokenValue){
+    let total = 0;
+    
+    table.forEach(row=>{
+        if(row.children[0].innerText=="Item" || row.children[0].innerText=="Price") return;
+
+        let price = parseInt(row.children[1].innerText);
+        let qty = parseInt(row.children[2].children[0].value);
+        let st = parseInt(row.children[3].innerText);
+
+        if(qty > st){
+            alert("Only " + st + " left of " + row.children[0].innerText);
+            return;
+        }
+        row.children[3].innerText = st - qty;
+        total += qty * price;
+    });
+
+    tokenValue++;
+
+    billBox.innerHTML = "Total Bill: <b>₹" + total + "</b>";
+    tokenBox.innerHTML = "Token Number: <b>" + tokenValue + "</b>";
+
+    return tokenValue;
+}
+
+// 💰 Now bill will display properly
+function placeOrder1(){
+    token1 = calc(
+        [...document.querySelectorAll("#stock1 tr"), ...document.querySelectorAll("#stock1D tr")],
+        document.getElementById("bill1"),
+        document.getElementById("token1"),
+        token1
+    );
+
+    window.location.href = "payment.html";  // 🟢 redirect to another page
+}
+
+
+function placeOrder2(){
+    token2 = calc(
+        [...document.querySelectorAll("#stock2 tr"), ...document.querySelectorAll("#stock2F tr")],
+        document.getElementById("bill2"),
+        document.getElementById("token2"),
+        token2
+    );
+
+    window.location.href = "payment.html";  // 🟢 redirect to payment page
+}
+
+
+function placeOrder3(){
+    token3 = calc(
+        [...document.querySelectorAll("#stock3 tr"), ...document.querySelectorAll("#stock3S tr")],
+        document.getElementById("bill3"),
+        document.getElementById("token3"),
+        token3
+    );
+
+    window.location.href = "payment.html"; // 🟢 redirects to payment page
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+<script>
+function showSection(sectionId) {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(sec => sec.style.display = 'none');
+    document.getElementById(sectionId).style.display = 'block';
+}
+
+
+
+let theme = "light";
+
+function toggleTheme(){
+    if(theme=="light"){
+        document.body.style.backgroundColor = "#1e1e1e";
+        document.body.style.color = "white";
+        theme="dark";
+    }
+    else if(theme=="dark"){
+        document.body.style.backgroundColor = "#f3e7d3"; // Cafe theme light brown
+        document.body.style.color = "#3b2617";
+        theme="cafe";
+    }
+    else{
+        document.body.style.backgroundImage="url('cafe image.webp')";
+        document.body.style.color="black";
+        theme="light";
+    }
+}
+
+</script>
+
+</body>
+</html>
